@@ -8,6 +8,7 @@ import ru.rohtuasad.didemo.controllers.DemoController;
 import ru.rohtuasad.didemo.controllers.PropertyInjectedController;
 import ru.rohtuasad.didemo.controllers.SetterInjectedController;
 import ru.rohtuasad.didemo.propertiesexample.FakeDataSource;
+import ru.rohtuasad.didemo.propertiesexample.FakeJmsBroker;
 
 @SpringBootApplication
 public class DiDemoApplication {
@@ -24,5 +25,10 @@ public class DiDemoApplication {
         System.out.println(fakeDataSource.getUser());
         System.out.println(fakeDataSource.getPassword());
         System.out.println(fakeDataSource.getUrl());
+
+        FakeJmsBroker fakeJmsBroker = ctx.getBean(FakeJmsBroker.class);
+        System.out.println(fakeJmsBroker.getUser());
+        System.out.println(fakeJmsBroker.getPassword());
+        System.out.println(fakeJmsBroker.getUrl());
     }
 }
