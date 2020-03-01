@@ -7,6 +7,7 @@ import ru.rohtuasad.didemo.controllers.ConstructorBasedController;
 import ru.rohtuasad.didemo.controllers.DemoController;
 import ru.rohtuasad.didemo.controllers.PropertyInjectedController;
 import ru.rohtuasad.didemo.controllers.SetterInjectedController;
+import ru.rohtuasad.didemo.propertiesexample.FakeDataSource;
 
 @SpringBootApplication
 public class DiDemoApplication {
@@ -18,5 +19,10 @@ public class DiDemoApplication {
         System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
         System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
         System.out.println(ctx.getBean(ConstructorBasedController.class).sayHello());
+
+        FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
+        System.out.println(fakeDataSource.getUser());
+        System.out.println(fakeDataSource.getPassword());
+        System.out.println(fakeDataSource.getUrl());
     }
 }
